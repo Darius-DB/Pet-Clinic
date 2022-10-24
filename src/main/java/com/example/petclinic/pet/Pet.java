@@ -10,6 +10,7 @@ import javax.persistence.*;
 @ToString
 @Getter
 @Setter
+@Builder
 @Entity
 @Table(name = "pets")
 public class Pet {

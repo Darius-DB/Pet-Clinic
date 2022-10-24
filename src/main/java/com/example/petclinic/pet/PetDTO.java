@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @ToString
+@Builder
 public class PetDTO {
 
     private Long petId;
