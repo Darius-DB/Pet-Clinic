@@ -3,6 +3,8 @@ package com.example.petclinic.pet;
 import com.example.petclinic.owner.Owner;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
@@ -15,11 +17,11 @@ public class PetDTO {
 
     private Long petId;
 
-    @NotNull
+    @NotNull @NotBlank @NotEmpty
     private String species;
-    @NotNull
+    @NotNull @NotBlank @NotEmpty
     private Integer age;
-    @NotNull
+    @NotNull @NotBlank @NotEmpty
     private String name;
 
     private Owner owner;

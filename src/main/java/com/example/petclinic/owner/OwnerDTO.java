@@ -16,19 +16,19 @@ public class OwnerDTO {
 
     private Long ownerId;
 
-    @NotNull
+    @NotNull @NotBlank @NotEmpty
     private String firstName;
 
-    @NotNull
+    @NotNull @NotBlank @NotEmpty
     private String lastName;
 
-    @NotNull
+    @NotNull @NotBlank @NotEmpty
     private String city;
 
     @NotNull  @Size(max = 10, min = 10) @Pattern(regexp = "^[0-9]*$")
     private String phoneNumber;
 
-    @NotNull @Email
+    @NotNull @NotBlank @NotEmpty @Email
     private String email;
 
     private List<Pet> pets;
