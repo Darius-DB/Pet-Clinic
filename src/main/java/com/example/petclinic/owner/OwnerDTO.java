@@ -1,6 +1,8 @@
 package com.example.petclinic.owner;
 
 import com.example.petclinic.pet.Pet;
+import com.example.petclinic.utils.Group1;
+import com.example.petclinic.utils.Group2;
 import lombok.*;
 
 import javax.validation.constraints.*;
@@ -16,19 +18,22 @@ public class OwnerDTO {
 
     private Long ownerId;
 
-    @NotNull @NotBlank @NotEmpty
+    @NotBlank(groups = {Group1.class})
     private String firstName;
 
-    @NotNull @NotBlank @NotEmpty
+    @NotBlank(groups = {Group1.class})
     private String lastName;
 
-    @NotNull @NotBlank @NotEmpty
+    @NotBlank(groups = {Group1.class})
     private String city;
 
-    @NotNull  @Size(max = 10, min = 10) @Pattern(regexp = "^[0-9]*$")
+    @NotNull(groups = {Group1.class})
+    @Size(max = 10, min = 10, groups = {Group1.class, Group2.class})
+    @Pattern(regexp = "^[0-9]*$", groups = {Group1.class, Group2.class})
     private String phoneNumber;
 
-    @NotNull @NotBlank @NotEmpty @Email
+    @NotBlank(groups = {Group1.class})
+    @Email(groups = {Group1.class, Group2.class})
     private String email;
 
     private List<Pet> pets;
