@@ -60,4 +60,12 @@ public class OwnerService {
         String[] result = new String[emptyNames.size()];
         return emptyNames.toArray(result);
     }
+
+    public void delete(Long id) {
+        if (ownerRepository.findById(id).isEmpty()) {
+            throw new ResourceNotFoundException("The specified owner does not exist");
+        }
+        
+        ownerRepository.deleteById(id);
+    }
 }
