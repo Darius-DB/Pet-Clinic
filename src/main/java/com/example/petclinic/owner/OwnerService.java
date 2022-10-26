@@ -65,7 +65,14 @@ public class OwnerService {
         if (ownerRepository.findById(id).isEmpty()) {
             throw new ResourceNotFoundException("The specified owner does not exist");
         }
-        
+
         ownerRepository.deleteById(id);
+    }
+
+
+    public OwnerDTO getById(Long id) {
+        return OwnerMapper.toOwnerDTO(
+                ownerRepository.findById(id).orElseThrow(
+                        () -> new ResourceNotFoundException("The specified owner does not exist")));
     }
 }

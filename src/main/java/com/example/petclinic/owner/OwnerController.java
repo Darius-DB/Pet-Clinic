@@ -40,4 +40,9 @@ public class OwnerController {
         ownerService.delete(id);
         return new ResponseEntity<>("Owner deletes successfully", HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OwnerDTO> getOwnerById(@PathVariable Long id) {
+        return new ResponseEntity<>(ownerService.getById(id), HttpStatus.OK);
+    }
 }
